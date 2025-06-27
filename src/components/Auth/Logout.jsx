@@ -8,13 +8,16 @@ const Logout = () => {
     try {
       const token = localStorage.getItem("authToken");
 
-      const response = await fetch("http://localhost:5000/api/auth/logout", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}auth/logout`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       if (response.ok) {
         console.log(localStorage.removeItem("authToken") + "token removed");

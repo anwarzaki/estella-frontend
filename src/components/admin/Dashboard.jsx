@@ -18,11 +18,14 @@ const Dashboard = () => {
   const fetchUsers = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:5000/api/auth/users", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-        },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}auth/users`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();

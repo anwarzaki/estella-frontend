@@ -13,14 +13,14 @@ function VerifyOtp() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/verify-otp",
+        `${import.meta.env.VITE_API_URL}auth/verify-otp`,
         { email, otp }
       );
       setMessage(response.data.message);
       setError("");
-      
+
       // In VerifyOtp component
-     navigate("/reset-password", { state: { email, otp } });
+      navigate("/reset-password", { state: { email, otp } });
     } catch (err) {
       console.error(err);
       const errorMessage =

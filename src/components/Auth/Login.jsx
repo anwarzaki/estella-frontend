@@ -20,7 +20,7 @@ export default function Login() {
     const token = localStorage.getItem("authToken");
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}auth/login`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

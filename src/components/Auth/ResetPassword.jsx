@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function ResetPassword() {
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [message, setMessage] = useState('');
-  const [error, setError] = useState('');
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
-  
+
   // Get email and otp from navigation state
   const { email, otp } = location.state || {};
 
   useEffect(() => {
     if (!email || !otp) {
       // Redirect to forgot password if no email/otp
-      navigate('/forgot-password');
+      navigate("/forgot-password");
     }
   }, [email, otp, navigate]);
 
@@ -27,39 +27,42 @@ function ResetPassword() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      setError('Passwords do not match');
+      setError("Passwords do not match");
       return;
     }
-    
+
     try {
-      const response = await fetch('http://localhost:5000/api/auth/reset-password', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          otp,
-          newPassword: password
-        })
-      });
-      
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}auth/reset-password`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            otp,
+            newPassword: password,
+          }),
+        }
+      );
+
       const data = await response.json();
-      
+
       if (!response.ok) {
-        throw new Error(data.message || 'An error occurred');
+        throw new Error(data.message || "An error occurred");
       }
-      
-      setMessage(data.message || 'Password reset successful');
-      setError('');
-      
+
+      setMessage(data.message || "Password reset successful");
+      setError("");
+
       // Redirect to login after successful password reset
       setTimeout(() => {
-        navigate('/login');
+        navigate("/login");
       }, 2000);
     } catch (err) {
-      setError(err.message || 'An error occurred');
-      setMessage('');
+      setError(err.message || "An error occurred");
+      setMessage("");
     }
   };
 
