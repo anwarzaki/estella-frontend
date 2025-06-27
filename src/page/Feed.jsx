@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import {useUser} from "../hooks/useUser.js";
+import { useUser } from "../hooks/useUser";
 
 const Feeds = () => {
   const [feeds, setFeeds] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);    
+  const [error, setError] = useState(null);
   const { isAdmin } = useUser();
 
   useEffect(() => {
     fetchFeeds();
-  }, []);     
+  }, []);
 
   const fetchFeeds = async () => {
     setLoading(true);
@@ -59,12 +59,15 @@ const Feeds = () => {
       }
 
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}feeds/${id}`, {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}feeds/${id}`,
+          {
+            method: "DELETE",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
         if (!response.ok) {
           throw new Error(`Failed to delete feed: ${response.statusText}`);
