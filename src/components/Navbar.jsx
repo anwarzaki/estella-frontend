@@ -103,7 +103,7 @@ const Navbar = () => {
 
               {isAuthenticated ? (
                 <Link
-                  to="/logout"
+                  to="/auth/logout"
                   className="hidden md:block rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-[#9F4C5B] transition hover:text-[#B76E79]"
                 >
                   Logout
@@ -111,13 +111,13 @@ const Navbar = () => {
               ) : (
                 <div className="hidden md:flex gap-4">
                   <Link
-                    to="/login"
+                    to="/auth/login"
                     className="rounded-md bg-[#9F4C5B] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#B76E79]"
                   >
                     Login
                   </Link>
                   <Link
-                    to="/register"
+                    to="/auth/register"
                     className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-[#9F4C5B] transition hover:text-[#B76E79]"
                   >
                     Register
@@ -193,7 +193,7 @@ const Navbar = () => {
                 {isAuthenticated ? (
                   <li>
                     <Link
-                      to="/logout"
+                      to="/auth/logout"
                       className="text-white hover:text-gray-200 block py-2"
                       onClick={toggleMenu}
                     >
@@ -204,7 +204,7 @@ const Navbar = () => {
                   <>
                     <li>
                       <Link
-                        to="/login"
+                        to="/auth/login"
                         className="text-white hover:text-gray-200 block py-2"
                         onClick={toggleMenu}
                       >
@@ -213,7 +213,7 @@ const Navbar = () => {
                     </li>
                     <li>
                       <Link
-                        to="/register"
+                        to="/auth/register"
                         className="text-white hover:text-gray-200 block py-2"
                         onClick={toggleMenu}
                       >
