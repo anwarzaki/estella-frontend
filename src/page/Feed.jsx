@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useUser } from "../hooks/useUser";
 import Navbar from "../components/Navbar";
+import useUser from "../hooks/useUser";
 
 const Feeds = () => {
   const [feeds, setFeeds] = useState([]);
@@ -59,7 +59,7 @@ const Feeds = () => {
       }
 
       try {
-        const response = await fetch(`http://localhost:5000/api/feeds/${id}`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}feeds/${id}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${token}`,
