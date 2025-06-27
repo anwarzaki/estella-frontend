@@ -25,7 +25,7 @@ const Products = () => {
   const fetchPerfumes = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:5000/api/perfume");
+      const response = await fetch(`${import.meta.env.VITE_API_URL}perfume`);
 
       if (!response.ok) {
         throw new Error("Failed to fetch perfumes");
@@ -46,26 +46,29 @@ const Products = () => {
   };
 
   const handleUpdate = (updatedPerfume) => {
-    setPerfumes(prev =>
-      prev.map(p => p._id === updatedPerfume._id ? updatedPerfume : p)
+    setPerfumes((prev) =>
+      prev.map((p) => (p._id === updatedPerfume._id ? updatedPerfume : p))
     );
   };
 
   const handleDelete = async (perfume) => {
-    if (window.confirm('Are you sure you want to delete this perfume?')) {
+    if (window.confirm("Are you sure you want to delete this perfume?")) {
       try {
-        const response = await fetch(`http://localhost:5000/api/perfume/${perfume._id}`, {
-          method: 'DELETE'
-        });
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}perfume/${perfume._id}`,
+          {
+            method: "DELETE",
+          }
+        );
 
         if (!response.ok) {
-          throw new Error('Failed to delete perfume');
+          throw new Error("Failed to delete perfume");
         }
 
-        setPerfumes(prev => prev.filter(p => p._id !== perfume._id));
+        setPerfumes((prev) => prev.filter((p) => p._id !== perfume._id));
       } catch (error) {
-        console.error('Error deleting perfume:', error);
-        alert('Failed to delete perfume');
+        console.error("Error deleting perfume:", error);
+        alert("Failed to delete perfume");
       }
     }
   };
@@ -113,7 +116,7 @@ const Products = () => {
       <Navbar />
       <div className="mt-[64px] container mx-auto px-4">
         <PerfumeFilters onFilterChange={handleFilterChange} />
-        <PerfumeCard 
+        <PerfumeCard
           perfumes={filteredPerfumes}
           onEdit={handleEdit}
           onDelete={handleDelete}

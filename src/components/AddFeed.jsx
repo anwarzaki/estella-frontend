@@ -53,7 +53,7 @@ const Feed = () => {
 
     try {
       const token = localStorage.getItem("authToken");
-      const response = await fetch("http://localhost:5000/api/feeds/", {
+      const response = await fetch(`{import.meta.env.VITE_API_URL}feeds`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

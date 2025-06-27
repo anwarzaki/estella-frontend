@@ -96,13 +96,16 @@ const EditFeed = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/feeds/${id}`, {
-        method: "PUT",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        body: form,
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}feeds/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          body: form,
+        }
+      );
 
       if (!response.ok) {
         throw new Error(`Failed to update feed: ${response.statusText}`);

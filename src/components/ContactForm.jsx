@@ -30,7 +30,7 @@ const ContactForm = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/contact/submit",
+        `${import.meta.env.VITE_API_URL}contact/submit`,
         formData
       );
 

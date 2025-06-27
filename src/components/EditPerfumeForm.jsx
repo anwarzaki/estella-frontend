@@ -48,7 +48,7 @@ const EditPerfumeForm = ({ perfume, onClose, onUpdate }) => {
       }
 
       const response = await fetch(
-        `http://localhost:5000/api/perfume/${perfume._id}`,
+        `${import.meta.env.VITE_API_URL}perfume/${perfume._id}`,
         {
           method: "PUT",
           body: formDataToSend,

@@ -77,14 +77,17 @@ const AddPerfumeForm = () => {
         throw new Error("Authentication token not found. Please log in again.");
       }
 
-      const response = await fetch("http://localhost:5000/api/perfume", {
-        method: "POST",
-        body: formDataToSend,
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}perfume`,
+        {
+          method: "POST",
+          body: formDataToSend,
+          headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       if (!response.ok) {
         const errorData = await response.json();
