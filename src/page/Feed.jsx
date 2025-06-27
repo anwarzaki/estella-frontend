@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import { useUser } from "../hooks/useUser";
+import useUser from "./useUser";
+// import useUser from "../hooks/useUser";
 
 const Feeds = () => {
   const [feeds, setFeeds] = useState([]);
