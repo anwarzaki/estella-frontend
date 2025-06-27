@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { useUser } from "../hooks/useUser"; // Adjust path as needed
+import { useUser } from "../hooks/useUser";  
 import { useCart } from "../context/CartContext";
 
 const Navbar = () => {
