@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import useUser from "../hooks/useUser";
+import {useUser} from "../hooks/useUser.js";
 
 const Feeds = () => {
   const [feeds, setFeeds] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(null);    
   const { isAdmin } = useUser();
 
   useEffect(() => {
     fetchFeeds();
-  }, []);
+  }, []);     
 
   const fetchFeeds = async () => {
     setLoading(true);
