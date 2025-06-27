@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -23,7 +23,7 @@ function ForgotPassword() {
       if (response.data.redirect) {
         navigate(response.data.redirect); // Navigate to the correct path
       } else {
-        navigate("auth/verify-otp"); // Default redirect
+        navigate("/verify-otp"); // Default redirect
       }
     } catch (err) {
       setError(err.response?.data?.message || "An error occurred");
@@ -60,10 +60,10 @@ function ForgotPassword() {
           </button>
         </form>
         <p className="mt-4 text-sm text-center text-gray-600">
-          Remembered your password?{" "}
-          <a href="auth/login" className="text-indigo-600 hover:underline">
+          Remembered your password?
+          <Link to="/login" className="text-indigo-600 hover:underline">
             Log In
-          </a>
+          </Link>
         </p>
       </div>
     </div>

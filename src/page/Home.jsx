@@ -32,7 +32,7 @@ const Home = () => {
     const checkAuth = () => {
       const token = localStorage.getItem("authToken");
       if (!token) {
-        navigate("/login");
+        navigate("/auth/login");
       }
     };
 

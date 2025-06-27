@@ -1,5 +1,6 @@
 import React from "react";
 import { Mail, Phone, Instagram, Facebook, Share2 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const navigation = {
@@ -48,12 +49,12 @@ const Footer = () => {
                 <ul role="list" className="mt-4 space-y-4">
                   {navigation.explore.map((item) => (
                     <li key={item.name}>
-                      <a
-                        href={item.href}
+                      <Link
+                        to={item.href}
                         className="text-gray-300 hover:text-white transition-colors duration-200"
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -65,12 +66,12 @@ const Footer = () => {
                 <ul role="list" className="mt-4 space-y-4">
                   {navigation.legal.map((item) => (
                     <li key={item.name}>
-                      <a
-                        href={item.href}
+                      <Link
+                        to={item.href}
                         className="text-gray-300 hover:text-white transition-colors duration-200"
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

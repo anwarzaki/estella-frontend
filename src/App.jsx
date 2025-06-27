@@ -32,14 +32,14 @@ function App() {
         >
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="auth/login" element={<Login />} />
-            <Route path="auth/register" element={<Register />} />
-            <Route path="auth/forgot-password" element={<ForgotPassword />} />
-            <Route path="auth/verify-otp" element={<VerifyOtp />} />
-            <Route path="auth/reset-password" element={<ResetPassword />} />
-            <Route path="auth/logout" element={<Logout />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="about" element={<About />} />
+            <Route path="/auth/login" element={<Login />} />
+            <Route path="/auth/register" element={<Register />} />
+            <Route path="/auth/forgot-password" element={<ForgotPassword />} />
+            <Route path="/auth/verify-otp" element={<VerifyOtp />} />
+            <Route path="/auth/reset-password" element={<ResetPassword />} />
+            <Route path="/auth/logout" element={<Logout />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<About />} />
             <Route path="/products" element={<Products />} />
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/feeds" element={<Feed />} />

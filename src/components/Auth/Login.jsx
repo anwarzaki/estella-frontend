@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -9,6 +9,7 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -139,20 +140,20 @@ export default function Login() {
         </button>
 
         <p className="mt-4 text-sm text-center">
-          Forgot your password?{" "}
-          <a
-            href="auth/forgot-password"
+          Forgot your password?
+          <Link
+            to="/auth/forgot-password"
             className="text-blue-500 hover:underline"
           >
             Reset it here
-          </a>
+          </Link>
         </p>
 
         <p className="mt-2 text-sm text-center">
-          Don't have an account?{" "}
-          <a href="auth/register" className="text-blue-500 hover:underline">
+          Don't have an account? 
+          <Link to="/auth/register" className="text-blue-500 hover:underline">
             Register now
-          </a>
+          </Link>
         </p>
       </form>
     </div>
