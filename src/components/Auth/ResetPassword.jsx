@@ -15,7 +15,7 @@ function ResetPassword() {
   useEffect(() => {
     if (!email || !otp) {
       // Redirect to forgot password if no email/otp
-      navigate("/forgot-password");
+      navigate("auth/forgot-password");
     }
   }, [email, otp, navigate]);
 

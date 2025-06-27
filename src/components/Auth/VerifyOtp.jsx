@@ -20,7 +20,7 @@ function VerifyOtp() {
       setError("");
 
       // In VerifyOtp component
-      navigate("/reset-password", { state: { email, otp } });
+      navigate("auth/reset-password", { state: { email, otp } });
     } catch (err) {
       console.error(err);
       const errorMessage =

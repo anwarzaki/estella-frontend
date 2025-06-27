@@ -23,14 +23,14 @@ const Logout = () => {
         console.log(localStorage.removeItem("authToken") + "token removed");
         localStorage.removeItem("authToken");
 
-        navigate("/login");
+        navigate("auth/login");
       } else {
         console.error("Logout failed");
-        navigate("/login");
+        navigate("auth/login");
       }
     } catch (error) {
       console.error("Error during logout:", error);
-      navigate("/login");
+      navigate("auth/login");
     }
   };
 

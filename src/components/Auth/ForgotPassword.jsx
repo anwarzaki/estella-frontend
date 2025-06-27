@@ -12,7 +12,8 @@ function ForgotPassword() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}auth/forgot-password`,
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}auth/forgot-password`,
         { email }
       );
       setMessage(response.data.message);
@@ -22,7 +23,7 @@ function ForgotPassword() {
       if (response.data.redirect) {
         navigate(response.data.redirect); // Navigate to the correct path
       } else {
-        navigate("/verify-otp"); // Default redirect
+        navigate("auth/verify-otp"); // Default redirect
       }
     } catch (err) {
       setError(err.response?.data?.message || "An error occurred");
@@ -60,7 +61,7 @@ function ForgotPassword() {
         </form>
         <p className="mt-4 text-sm text-center text-gray-600">
           Remembered your password?{" "}
-          <a href="/login" className="text-indigo-600 hover:underline">
+          <a href="auth/login" className="text-indigo-600 hover:underline">
             Log In
           </a>
         </p>

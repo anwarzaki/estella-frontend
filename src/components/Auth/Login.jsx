@@ -140,14 +140,17 @@ export default function Login() {
 
         <p className="mt-4 text-sm text-center">
           Forgot your password?{" "}
-          <a href="/forgot-password" className="text-blue-500 hover:underline">
+          <a
+            href="auth/forgot-password"
+            className="text-blue-500 hover:underline"
+          >
             Reset it here
           </a>
         </p>
 
         <p className="mt-2 text-sm text-center">
           Don't have an account?{" "}
-          <a href="/register" className="text-blue-500 hover:underline">
+          <a href="auth/register" className="text-blue-500 hover:underline">
             Register now
           </a>
         </p>

@@ -34,7 +34,7 @@ function Register() {
       if (response.ok) {
         setMessage(result.message || "Registration successful");
         setError("");
-        navigate("/login");
+        navigate("auth/login");
       } else {
         setError(result.message || "An error occurred");
         setMessage("");
@@ -130,7 +130,7 @@ function Register() {
         </form>
         <p className="mt-4 text-sm text-center text-gray-600">
           Already have an account?{" "}
-          <a href="/login" className="text-indigo-600 hover:underline">
+          <a href="auth/login" className="text-indigo-600 hover:underline">
             Log In
           </a>
         </p>
