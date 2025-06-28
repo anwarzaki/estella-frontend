@@ -23,7 +23,7 @@ function ForgotPassword() {
       if (response.data.redirect) {
         navigate(response.data.redirect); // Navigate to the correct path
       } else {
-        navigate("/verify-otp"); // Default redirect
+        navigate("/auth/verify-otp"); // Default redirect
       }
     } catch (err) {
       setError(err.response?.data?.message || "An error occurred");
@@ -61,7 +61,7 @@ function ForgotPassword() {
         </form>
         <p className="mt-4 text-sm text-center text-gray-600">
           Remembered your password?
-          <Link to="/login" className="text-indigo-600 hover:underline">
+          <Link to="/auth/login" className="text-indigo-600 hover:underline">
             Log In
           </Link>
         </p>
